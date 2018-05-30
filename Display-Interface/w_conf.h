@@ -276,6 +276,7 @@ signals:
     void WriteMessage(quint16, quint16, QByteArray);
     void WConf_DeviceOpen();
     void WConf_WriteSql(QByteArray);
+    void sendAppMap(QVariantMap msg);
 
 public slots:
     void SlOT_CanSendFrame(can_frame frame);

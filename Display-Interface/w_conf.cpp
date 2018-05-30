@@ -3240,6 +3240,39 @@ void w_Conf::Save_Test_Data(QStringList all_data)
     }
     sql.db.commit();
 
+    QStringList tmpList;
+    for (int i=0; i < strTest.size(); i++) {
+        QString tmpStr;
+        tmpStr.append(strTest.at(i));
+        tmpStr.append("@");
+        tmpStr.append(strParam.at(i));
+        tmpStr.append("@");
+        if (i < Result.size())
+            tmpStr.append(Result.at(i));
+        else
+            tmpStr.append("");
+        tmpStr.append("@");
+        if (i < Judge.size())
+            tmpStr.append(Judge.at(i));
+        else
+            tmpStr.append("");
+        tmpList.append(tmpStr);
+    }
+    QVariantMap tmpMap;
+    tmpMap.insert("enum", QMessageBox::Save);
+    tmpMap.insert("post", Get_Set.at(0));  // 工位
+    tmpMap.insert("pass", Get_Set.at(1));  // 总判定
+    tmpMap.insert("time", Get_Set.at(2));  // 时间
+    tmpMap.insert("date", Get_Set.at(3));  // 日期
+    tmpMap.insert("temp", Get_Set.at(4));  // 温度
+    tmpMap.insert("numb", Get_Set.at(5));  // 编码
+    tmpMap.insert("user", Get_Set.at(6));  // 用户
+    tmpMap.insert("type", Ini_ActiveFile);  // 型号
+    tmpMap.insert("data", tmpList.join("\n"));
+    emit sendAppMap(tmpMap);
+    qDebug() << tmpMap;
+    tmpMap.clear();
+
    /* for (i = 0; i < QStringList_OK.size(); i++) {
         s.clear();
         s = QString(tr("%1@%2@OK")).arg(QStringList_OK.at(i)).arg(SQL_Result.at(0));

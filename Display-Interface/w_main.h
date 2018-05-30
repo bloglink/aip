@@ -33,6 +33,8 @@
 #include "pic.h"
 #include "SQL_DB.h"
 
+#include "sql/sqldesktop.h"
+
 #define CAN_DLR        0x41   // 电阻板
 #define CAN_DLR_SHAPE  0x441  // 电阻板反嵌波形
 #define CAN_IR         0x61   // 耐压板
@@ -80,7 +82,7 @@ public:
     explicit w_Main(QWidget *parent = 0);
     ~w_Main();
     w_Syst   *wSyst; // -系统界面
-    w_Data   *wData; // -数据管理
+    SqlDesktop   *wData; // -数据管理
     w_Test   *wTest; // -测试界面
     w_Help   *wHelp; // -帮助界面
     w_Conf   *wConf; // -配置界面

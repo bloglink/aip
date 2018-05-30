@@ -355,15 +355,15 @@ void w_Main::Button_Main_Group_Judge(int id) {
     case Qt::Key_C: //-进入数据管理
         CurrentDateTime = QDateTime::currentDateTime().toString("yyyy/MM/dd"); //设置显示格式
         Search << wConf->Ini_ActiveFile << CurrentDateTime << CurrentDateTime;
-        wData->Structure_Interface("wMain", wConf->Ini_ActiveFile);
+//        wData->Structure_Interface("wMain", wConf->Ini_ActiveFile);
         Pubs_ChangeWindow(3);
         qApp->processEvents(); // 立即显示生效
 
         data_t.append(QString::number(wConf->Conf_User));
         data_t.append(QString::number(wConf->Ini_ACW_And_IR));
         data_t.append(Ini_Motor);
-        wData->Pub_Set_Data(data_t);
-        wData->File = wConf->currentFile;
+//        wData->Pub_Set_Data(data_t);
+//        wData->File = wConf->currentFile;
         break;
     case Qt::Key_D: //-进入测试
         Pubs_ChangeWindow(4);
@@ -1965,7 +1965,7 @@ void w_Main::Jump_wTest_Surface()
 
 void w_Main::Pubs_UDisk_Data(int a, QString USB) {
     Sigmain_save_DayRecoord("USB", " ");
-    wData->UDisk_Test(a, USB);
+//    wData->UDisk_Test(a, USB);
 }
 
 /******************************************************************************
@@ -2025,7 +2025,8 @@ void w_Main::System_Runing()
         break;
     case 2:
         ui->Print_Text->append("2-Syetem-set:");
-        wData = new w_Data;
+        wData = new SqlDesktop;
+        connect(wData,SIGNAL(Signal_Data_to_Main(int,int)),this,SLOT(Pubs_from_data(int,int)));
         connect(wData, SIGNAL(Signal_Data_to_Main(QStringList, int, int)), \
                 this, SLOT(Pubs_from_data(QStringList, int, int)));
         connect(myThread, SIGNAL(Singal_U_Test(int, QString)), \
@@ -2071,6 +2072,7 @@ void w_Main::System_Runing()
         ui->Print_Text->append("System Initialization Test!");
         ui->Print_Text->append("w_Conf Sql Connecting");
         wConf = new w_Conf;
+        connect(wConf, SIGNAL(sendAppMap(QVariantMap)), wData, SLOT(recvSqlDat(QVariantMap)));
         connect(this, SIGNAL(Sigmain_save_DayRecoord(QString, QString)), \
                 wConf, SLOT(Slot_Save_DayRecoord(QString, QString)));
         connect(wDebug, SIGNAL(Singal_Save_Debug(QString, QString)), \

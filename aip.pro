@@ -57,7 +57,15 @@ SOURCES += \
     External-Interface/pic.cpp \
     Display-Interface/w_data.cpp \
     External-Interface/SQL_DB.cpp \
-    External-Interface/linux_Thread.cpp
+    External-Interface/linux_Thread.cpp \
+    sql/sqldesktop.cpp \
+    sql/sqldisplay.cpp \
+    sql/sqlexports.cpp \
+    sql/sqlhistory.cpp \
+    sql/sqlimports.cpp \
+    sql/sqlnetwork.cpp \
+    sql/sqlproduct.cpp \
+    sql/sqlsnowuid.cpp
 
 
 HEADERS  += \
@@ -102,7 +110,15 @@ HEADERS  += \
     External-Interface/pic.h \
     Display-Interface/w_data.h \
     External-Interface/SQL_DB.h \
-    External-Interface/linux_Thread.h
+    External-Interface/linux_Thread.h \
+    sql/sqldesktop.h \
+    sql/sqldisplay.h \
+    sql/sqlexports.h \
+    sql/sqlhistory.h \
+    sql/sqlimports.h \
+    sql/sqlnetwork.h \
+    sql/sqlproduct.h \
+    sql/sqlsnowuid.h
 
 
 FORMS    += \
