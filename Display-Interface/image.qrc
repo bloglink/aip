@@ -1,0 +1,37 @@
+<RCC>
+    <qresource prefix="/">
+        <file>image/101.png</file>
+        <file>image/102.png</file>
+        <file>image/103.png</file>
+        <file>image/104.png</file>
+        <file>image/105.png</file>
+        <file>image/106.png</file>
+        <file>image/107.png</file>
+        <file>image/108.png</file>
+        <file>image/109.png</file>
+        <file>image/050.png</file>
+        <file>image/051.png</file>
+        <file>image/052.ico</file>
+        <file>image/053.png</file>
+        <file>image/circle_grey.png</file>
+        <file>image/circle_grey (1).png</file>
+        <file>image/arrow_down.ico</file>
+        <file>image/arrow_up.ico</file>
+        <file>image/abc.qss</file>
+        <file>image/downarrow.png</file>
+        <file>image/a/1.png</file>
+        <file>image/a/3.png</file>
+        <file>image/a/4.png</file>
+        <file>image/a/2.png</file>
+        <file>image/wifi.png</file>
+        <file>image/database.png</file>
+        <file>image/logo副本.png</file>
+        <file>image/pwr1.JPG</file>
+        <file>image/pwr2.JPG</file>
+        <file>image/printer.png</file>
+        <file>image/d1.bmp</file>
+        <file>aip.qm</file>
+        <file>image/hand-1.png</file>
+        <file>image/Time.png</file>
+    </qresource>
+</RCC>
